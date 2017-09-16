@@ -32,7 +32,7 @@ public class BlogApp {
 	}
 
 	private static void processListCommand() {
-		// your code here:显示博客列表
+		
 		for (Post post : postRepository.getAll()) {
 			String fileName = Long.toString(post.getId()) + ":" + post.getTitle();
 			System.out.println(fileName);
@@ -41,10 +41,10 @@ public class BlogApp {
 	}
 
 	private static void processShowCommand() {
-		// your code here:从输入中读取博客id，并将它显示出来，注意处理博客不存在的情�?		System.out.println("please input blog id");
+		System.out.println("please input blog id");
 		String id = scanner.nextLine();
 		if (postRepository.getPostById(Long.parseLong(id)) == null) {
-			System.out.println("博客不存�?);
+			System.out.println("åšå®¢ä¸å­˜åœ?);
 
 		} else {
 			postRepository.getPostById(Long.parseLong(id)).print();
@@ -52,7 +52,7 @@ public class BlogApp {
 	}
 
 	private static void processDeleteCommand() {
-		// your code here:从输入中读取博客id，并将它删除
+		
 		System.out.println("please input blog id");
 		String id = scanner.nextLine();
 		postRepository.remove(Long.parseLong(id));
@@ -71,18 +71,18 @@ public class BlogApp {
 				if (command.equals("exit")) {
 					break;
 				} else if (command.equals("create")) {
-					// 处理创建博客的逻辑
+					
 					processCreateCommand();
 
 				} else if (command.equals("list")) {
-					// 处理显示博客列表的逻辑
+					
 					processListCommand();
 
 				} else if (command.equals("show")) {
-					// 处理显示博客内容的逻辑
+					
 					processShowCommand();
 				} else if (command.equals("delete")) {
-					// 处理删除博客的逻辑
+					
 					processDeleteCommand();
 				} else if (command.equals("save")) {
 					postRepository.saveData();
